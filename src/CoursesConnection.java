@@ -3,9 +3,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Connect {
+public class CoursesConnection {
     Connection cnn;
-    public Connect() {
+    public CoursesConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             this.cnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dev", "root", "1234");

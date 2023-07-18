@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MainClass {
     /**
      * how to use another jar file as lib in project
@@ -7,7 +9,13 @@ public class MainClass {
      *  @param args
      */
     public static void main(String[] args) {
-        Connect cnn = new Connect();
-        cnn.insert("new course", 11);
+        CoursesConnection coursesConnection = new CoursesConnection();
+        MyScanner scn = new MyScanner();
+
+        String courseName = scn.scanString("Enter name: ");
+        int courseScore = scn.scanInt("Enter score: ");
+
+        coursesConnection.insert(courseName, courseScore);
+        System.out.println("new record added successfully!");
     }
 }
