@@ -1,3 +1,7 @@
+import domainModel.Courses;
+import repository.CoursesRepository;
+import repository.Transactional;
+
 import java.util.Scanner;
 
 public class MainClass {
@@ -9,13 +13,12 @@ public class MainClass {
      *  @param args
      */
     public static void main(String[] args) {
-        CoursesConnection coursesConnection = new CoursesConnection();
-        MyScanner scn = new MyScanner();
-
-        String courseName = scn.scanString("Enter name: ");
-        int courseScore = scn.scanInt("Enter score: ");
-
-        coursesConnection.insert(courseName, courseScore);
-        System.out.println("new record added successfully!");
+//        Courses a = Courses.builder().id(6).courseName("ali").score(100).build();
+//
+//        CoursesRepository cr = new CoursesRepository();
+//        cr.insert(a);
+        Transactional a = new Transactional();
+        int res = a.Insert();
+        System.out.println(res);
     }
 }
