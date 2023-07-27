@@ -1,6 +1,9 @@
 import domainModel.Courses;
 import repository.CoursesRepository_;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class MainClass {
     /**
      * how to use another jar file as lib in project
@@ -23,7 +26,15 @@ public class MainClass {
         Courses newCourse = Courses.builder().courseName("Entity").score(20).build();
         Courses newCourse2 = Courses.builder().id(7).build();
 
-        course.deleteById(newCourse2);
+        ResultSet res = course.selectAll();
+            try {
+                while (res.next()) {
+                    System.out.println(res.getInt("id"));
+                    System.out.println(res.getString("CourseName"));
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
     }
 }

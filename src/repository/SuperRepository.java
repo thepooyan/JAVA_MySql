@@ -22,7 +22,7 @@ public class SuperRepository implements IRepository{
     }
 
     @Override
-    public int insert() {
+    public int insert(Entity entity) {
         return 0;
     }
 
@@ -48,8 +48,7 @@ public class SuperRepository implements IRepository{
     @Override
     public ResultSet selectAll() {
         try {
-            PreparedStatement statement = cnn.prepareStatement("select * from ?");
-            statement.setString(1, this.table);
+            PreparedStatement statement = cnn.prepareStatement("select * from " + this.table);
             return statement.executeQuery();
         } catch (Exception e) {
             System.out.println(e.getMessage());
