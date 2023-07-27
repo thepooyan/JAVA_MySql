@@ -1,8 +1,5 @@
 import domainModel.Courses;
-import repository.CoursesRepository;
-import repository.Transactional;
-
-import java.util.Scanner;
+import repository.CoursesRepository_;
 
 public class MainClass {
     /**
@@ -17,8 +14,16 @@ public class MainClass {
 //
 //        CoursesRepository cr = new CoursesRepository();
 //        cr.insert(a);
-        Transactional a = new Transactional();
-        int res = a.Insert();
-        System.out.println(res);
+//        cr.printAllCourses();
+
+//        Transactional a = new Transactional();
+//        int res = a.Insert();
+//        System.out.println(res);
+        CoursesRepository_ course = new CoursesRepository_();
+        Courses newCourse = Courses.builder().courseName("Entity").score(20).build();
+        Courses newCourse2 = Courses.builder().id(7).build();
+
+        course.deleteById(newCourse2);
+
     }
 }

@@ -2,10 +2,7 @@ package repository;
 
 import domainModel.Courses;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CoursesRepository {
     Connection cnn;
@@ -52,6 +49,27 @@ public class CoursesRepository {
         try {
             this.cnn.close();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public ResultSet getAllCourses() {
+        try {
+            PreparedStatement statement = cnn.prepareStatement("select * from courses");
+            return statement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void printAllCourses() {
+        ResultSet result = getAllCourses();
+        try {
+            while (result.next()) {
+                System.out.println(result.getString("id"));
+                System.out.println(result.getString("courseName"));
+                System.out.println(result.getString("score"));
+                System.out.println("___________________");
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

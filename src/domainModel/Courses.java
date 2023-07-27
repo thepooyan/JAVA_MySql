@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @ToString
-public class Courses {
+public class Courses implements Entity {
     private int id;
     private String courseName;
     private int score;
