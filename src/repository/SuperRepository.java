@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class SuperRepository implements IRepository{
+public class SuperRepository implements IRepository {
 
     Connection cnn;
     String table;
@@ -19,12 +19,6 @@ public class SuperRepository implements IRepository{
             System.out.println(e.getMessage());
         }
         this.table = table;
-    }
-
-    @Override
-    public int insert(Entity entity) {
-        System.out.println("insert method has not been overidden yet");
-        return 0;
     }
 
     public int insertByValues(String[] schema, String[] values) {
@@ -60,11 +54,6 @@ public class SuperRepository implements IRepository{
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return 0;
-    }
-
-    @Override
-    public int update() {
         return 0;
     }
 

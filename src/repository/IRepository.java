@@ -5,8 +5,7 @@ import domainModel.Entity;
 import java.sql.ResultSet;
 
 public interface IRepository {
-    public int insert(Entity entity);
+    public int insertByValues(String[] schema, String[] values);
     public int deleteById(Entity entity);
-    public int update();
     public ResultSet selectAll();
 }
