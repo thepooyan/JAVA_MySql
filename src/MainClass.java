@@ -3,6 +3,7 @@ import repository.CoursesRepository_;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class MainClass {
     /**
@@ -23,18 +24,22 @@ public class MainClass {
 //        int res = a.Insert();
 //        System.out.println(res);
         CoursesRepository_ course = new CoursesRepository_();
-        Courses newCourse = Courses.builder().courseName("Entity").score(20).build();
-        Courses newCourse2 = Courses.builder().id(7).build();
+        String[] a = {"a", "b", "c"};
+        String[] b = {"1", "2", "3"};
+        course.insertByValues(a,b);
+//        Courses newCourse = Courses.builder().courseName("Entity").score(20).build();
+//        Courses newCourse2 = Courses.builder().id(7).build();
+//
+//        ResultSet res = course.selectAll();
+//            try {
+//                while (res.next()) {
+//                    System.out.println(res.getInt("id"));
+//                    System.out.println(res.getString("CourseName"));
+//                }
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
 
-        ResultSet res = course.selectAll();
-            try {
-                while (res.next()) {
-                    System.out.println(res.getInt("id"));
-                    System.out.println(res.getString("CourseName"));
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
 
     }
 }

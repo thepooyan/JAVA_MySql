@@ -26,6 +26,12 @@ public class SuperRepository implements IRepository{
         return 0;
     }
 
+    public int insertByValues(String[] schema, String[] values) {
+        String quote = "(" + String.join(", ", schema) + ") values (" + String.join(", ", values) + ")";
+        System.out.println(quote);
+        return 1;
+    }
+
     @Override
     public int deleteById(Entity entity) {
         try {
