@@ -27,9 +27,14 @@ public class SuperRepository implements IRepository{
     }
 
     public int insertByValues(String[] schema, String[] values) {
-        String quote = "(" + String.join(", ", schema) + ") values (" + String.join(", ", values) + ")";
-        System.out.println(quote);
-        return 1;
+        try {
+           String statementString = "(" + String.join(", ", schema) + ") values (" + String.join(", ", values) + ")";
+           PreparedStatement statement = cnn.prepareStatement("insert into " + this.table + statementString);
+           return statement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 
     @Override
