@@ -24,8 +24,8 @@ public class MainClass {
 //        int res = a.Insert();
 //        System.out.println(res);
         CoursesRepository_ course = new CoursesRepository_();
-        String[] a = {"a", "b", "c"};
-        String[] b = {"1", "2", "3"};
+        String[] a = {"courseName", "score"};
+        String[] b = {"3", "4"};
         course.insertByValues(a,b);
 //        Courses newCourse = Courses.builder().courseName("Entity").score(20).build();
 //        Courses newCourse2 = Courses.builder().id(7).build();
